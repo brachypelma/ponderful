@@ -9,16 +9,21 @@
 export interface Config {
   collections: {
     users: User;
-    pages: Page;
-    media: Media;
+    questions: Question;
+    responses: Response;
+    participants: Participant;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   globals: {};
   locale: null;
-  user: User & {
-    collection: 'users';
-  };
+  user:
+    | (User & {
+        collection: 'users';
+      })
+    | (Participant & {
+        collection: 'participants';
+      });
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -39,12 +44,21 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "questions".
  */
-export interface Page {
+export interface Question {
   id: string;
-  title?: string | null;
-  content?: {
+  content: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "responses".
+ */
+export interface Response {
+  id: string;
+  content: {
     root: {
       type: string;
       children: {
@@ -58,28 +72,32 @@ export interface Page {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
+  question?: (string | null) | Question;
+  by?: (string | null) | Participant;
+  date: string;
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "participants".
  */
-export interface Media {
+export interface Participant {
   id: string;
-  text?: string | null;
+  username: string;
+  likedResponses?: (string | Response)[] | null;
+  followedParticipants?: (string | Participant)[] | null;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -87,10 +105,15 @@ export interface Media {
  */
 export interface PayloadPreference {
   id: string;
-  user: {
-    relationTo: 'users';
-    value: string | User;
-  };
+  user:
+    | {
+        relationTo: 'users';
+        value: string | User;
+      }
+    | {
+        relationTo: 'participants';
+        value: string | Participant;
+      };
   key?: string | null;
   value?:
     | {

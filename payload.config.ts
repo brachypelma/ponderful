@@ -36,34 +36,84 @@ export default buildConfig({
       slug: 'users',
       auth: true,
       access: {
-        delete: () => false,
-        update: () => false,
+        delete: () => true,
+        update: () => true,
       },
       fields: [],
     },
     {
-      slug: 'pages',
+      slug: 'questions',
+      access: {
+        delete: () => true,
+        update: () => true,
+      },
       admin: {
-        useAsTitle: 'title',
+        useAsTitle: 'content',
       },
       fields: [
         {
-          name: 'title',
-          type: 'text',
-        },
-        {
           name: 'content',
-          type: 'richText',
+          type: 'text',
+          required: true,
         },
       ],
     },
     {
-      slug: 'media',
-      upload: true,
+      slug: 'responses',
+      access: {
+        delete: () => true,
+        update: () => true,
+      },
       fields: [
         {
-          name: 'text',
+          name: 'content',
+          type: 'richText',
+          required: true,
+        },
+        {
+          name: 'question',
+          type: 'relationship',
+          relationTo: 'questions',
+        },
+        {
+          name: 'by',
+          type: 'relationship',
+          relationTo: 'participants',
+        },
+        {
+          name: 'date',
+          type: 'date',
+          required: true,
+        },
+      ],
+    },
+    {
+      slug: 'participants',
+      access: {
+        delete: () => true,
+        update: () => true,
+      },
+      admin: {
+        useAsTitle: 'username',
+      },
+      auth: true,
+      fields: [
+        {
+          name: 'username',
           type: 'text',
+          required: true,
+        },
+        {
+          name: 'likedResponses',
+          type: 'relationship',
+          relationTo: 'responses',
+          hasMany: true,
+        },
+        {
+          name: 'followedParticipants',
+          type: 'relationship',
+          relationTo: 'participants',
+          hasMany: true,
         },
       ],
     },
@@ -89,13 +139,7 @@ export default buildConfig({
     supportedLanguages: { en },
   },
 
-  admin: {
-    autoLogin: {
-      email: 'dev@payloadcms.com',
-      password: 'test',
-      prefillOnly: true,
-    },
-  },
+  admin: {},
   async onInit(payload) {
     const existingUsers = await payload.find({
       collection: 'users',
@@ -106,8 +150,8 @@ export default buildConfig({
       await payload.create({
         collection: 'users',
         data: {
-          email: 'dev@payloadcms.com',
-          password: 'test',
+          email: 'ericdjonas@gmail.com',
+          password: 'I&D0w*BfRfiuyfUa',
         },
       })
     }
