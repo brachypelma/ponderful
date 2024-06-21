@@ -1,6 +1,4 @@
 .question {
-  --padding-inline: min(3rem, 5vw);
-  --padding-block: calc(var(--padding-inline) * 2);
   position: relative;
 }
 
@@ -8,6 +6,7 @@
   height: 100vh;
   display: grid;
   place-items: center;
+  text-align: center;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
   margin: 0;
@@ -20,7 +19,7 @@
 .bottom {
   --inset-top: calc(100vh - var(--padding-block));
 
-  @supports (height: 100vh) {
+  @supports (height: 100dvh) {
     --inset-top: calc(100dvh - var(--padding-block));
   }
 

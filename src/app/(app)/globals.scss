@@ -5,6 +5,8 @@
 html {
   --bg: #040404;
   --text: #fcf8ff;
+  --padding-inline: min(3rem, 5vw);
+  --padding-block: calc(var(--padding-inline) * 2);
   background-color: var(--bg);
 }
 
@@ -14,14 +16,10 @@ body {
   position: relative;
 }
 
-nav {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: min(40rem, 100%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5ch;
-  font-size: 20px;
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
 }
 
 p {
@@ -32,7 +30,6 @@ p {
 
 a {
   color: var(--text);
-  cursor: pointer;
   text-decoration: underline;
   transition: color 0.2s ease-out;
 
@@ -41,12 +38,6 @@ a {
   }
 }
 
-button {
+a, button, label {
   cursor: pointer;
-}
-
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
 }

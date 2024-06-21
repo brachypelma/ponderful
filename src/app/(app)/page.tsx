@@ -1,14 +1,15 @@
-import { Background } from '@/components/Background'
 import Question from '@/components/question/Question'
+import Nav from '@/components/nav/Nav'
 import React from 'react'
 
 const Page = () => {
   return (
     <>
+      <Nav />
       <main>
         <Question />
       </main>
-      <Background />
+      <div className="background"></div>
     </>
   )
 }
