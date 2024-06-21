@@ -5,6 +5,7 @@
 html {
   --bg: #040404;
   --text: #fcf8ff;
+  --link-text: #C3BCCF;
   --padding-inline: min(3rem, 5vw);
   --padding-block: calc(var(--padding-inline) * 2);
   background-color: var(--bg);
@@ -29,11 +30,13 @@ p {
 }
 
 a {
-  color: var(--text);
-  text-decoration: underline;
+  color: var(--link-text);
+  font-weight: bold;
+  text-decoration: none;
   transition: color 0.2s ease-out;
 
   &:hover {
+    text-decoration: underline;
     color: #ffffff;
   }
 }

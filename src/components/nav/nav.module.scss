@@ -25,6 +25,13 @@
   gap: 0.5ch;
 }
 
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5ch;
+  list-style: none;
+}
+
 .navRight {
   width: 100%;
   text-align: center;
