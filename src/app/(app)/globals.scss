@@ -32,12 +32,17 @@ p {
 
 a {
   color: var(--text);
+  cursor: pointer;
   text-decoration: underline;
   transition: color 0.2s ease-out;
 
   &:hover {
     color: #ffffff;
   }
+}
+
+button {
+  cursor: pointer;
 }
 
 .background {

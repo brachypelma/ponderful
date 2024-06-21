@@ -36,6 +36,9 @@ dependencies:
   graphql:
     specifier: ^16.8.2
     version: 16.8.2
+  hugeicons-react:
+    specifier: ^0.2.0
+    version: 0.2.0(react@19.0.0-rc-f994737d14-20240522)
   next:
     specifier: 15.0.0-rc.0
     version: 15.0.0-rc.0(babel-plugin-react-compiler@0.0.0-experimental-938cd9a-20240601)(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522)
@@ -5181,6 +5184,14 @@ packages:
   /http-status@1.6.2:
     resolution: {integrity: sha512-oUExvfNckrpTpDazph7kNG8sQi5au3BeTo0idaZFXEhTaJKu7GNJCLHI0rYY2wljm548MSTM+Ljj/c6anqu2zQ==}
     engines: {node: '>= 0.4.0'}
+
+  /hugeicons-react@0.2.0(react@19.0.0-rc-f994737d14-20240522):
+    resolution: {integrity: sha512-3eY1sRPQf2wYNygyi7P1TB90sHJLwv79HWLDbcvJhaWDnlC2X0QUUX54/X6NFR5MM6X6Ct/1Xh/0AlLrpnPZqQ==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 19.0.0-rc-f994737d14-20240522
+    dev: false
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
