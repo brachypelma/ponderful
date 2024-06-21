@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -9,6 +11,7 @@ html {
   --padding-inline: min(3rem, 5vw);
   --padding-block: calc(var(--padding-inline) * 2);
   background-color: var(--bg);
+  font-family: system-ui, sans-serif;
 }
 
 body {
@@ -36,7 +39,6 @@ a {
   transition: color 0.2s ease-out;
 
   &:hover {
-    text-decoration: underline;
     color: #ffffff;
   }
 }

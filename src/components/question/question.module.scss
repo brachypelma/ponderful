@@ -10,6 +10,9 @@
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
   margin: 0;
+  font-family: "Sorts Mill Goudy", serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 3vw, 3.25rem);
 
   @supports (height: 100dvh) {
     height: 100dvh;

@@ -19,6 +19,7 @@ const Nav = () => {
           htmlFor="nav-toggle"
           tabIndex={1}
           className={classes.navButton}
+          aria-label="Toggle menu"
           onKeyUp={(e) => e.key === 'Enter' && e.currentTarget.click()}
         ></label>
       </div>
