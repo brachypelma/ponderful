@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './Question.module.scss'
+import classes from './question.module.scss'
 
 const Question = () => {
   return (
