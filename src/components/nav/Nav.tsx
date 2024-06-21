@@ -4,8 +4,10 @@ import React from 'react'
 import classes from './nav.module.scss'
 
 const Nav = () => {
+  const [open, setOpen] = React.useState(false)
+
   return (
-    <nav className={classes.nav}>
+    <nav className={classes.nav} data-is-open={open}>
       <div className={classes.navMain}>
         <ul className={classes.navList}>
           <li>
@@ -21,6 +23,7 @@ const Nav = () => {
           className={classes.navButton}
           aria-label="Toggle menu"
           onKeyUp={(e) => e.key === 'Enter' && e.currentTarget.click()}
+          onClick={() => setOpen(() => true)}
         ></label>
       </div>
     </nav>
